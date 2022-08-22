@@ -1,9 +1,9 @@
 <template>
 
 <div>
-    <form action="post" class="inputBox shadow">
+    <form action="post" class="inputBox shadow" v-on:submit.prevent>
         <input type="text" v-model="Input.todo" placeholder="할일을 입력하세요" >
-        <span class="addContainer" @click="submit">
+        <span class="addContainer" @click="submit" @keyup:enter="submit">
             <i class="fas fa-solid fa-plus addBtn"></i>
         </span>
     </form>
@@ -55,6 +55,7 @@ data(){
                 const data={
                  todo:this.Input.todo
                  }
+                 console.log(api);
                 //  api함수 불러오기
                 await api.createTodo(data)
             }catch(err){

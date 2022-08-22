@@ -1,28 +1,42 @@
 import axios from 'axios'
 
 // 1. HTTP Reqest &Response와 관련된 기본 설정
-const config={
-    baseUrl:''
-}
+const instance = axios.create({
+   
+      baseURL: 'http://52.79.172.230:3001',
+    //   changeOrigin: true
+    
+  })
 
 // 2. API 함수들을 정리
-function createTodo () {
-   return axios.get(`${config.baseUrl}news/1.json`);
+function createTodo (data) {
+   return instance.post(`/todo`, data);
     
   }
-function editTodo () {
-    return axios.get(`${config.baseUrl}jobs/1.json`);
+function getTodoAll(){
+    return instance.get(`/todo`);
+}
+function getTodoDetail(id){
+    return instance.get(`/todo/${id}`);
+}
+
+function editTodo  (id,data) {
+    return instance.put(`/todo/${id}`,data);
      
 }
-function deleteTodo () {
-    return axios.get(`${config.baseUrl}ask/1.json`);
+function deleteTodo (data) {
+    return instance.delete(`/todo/:id`,data);
      
 }
    
   export {
     createTodo,
+    getTodoAll,
+    getTodoDetail,
     editTodo,
-    deleteTodo
+    deleteTodo,
+   
+    
     
     
 }
