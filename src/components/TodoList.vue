@@ -1,7 +1,7 @@
 <template>
 
 <div>
-    <div v-for="(todo,idx) in todoList" :key="idx">
+    <div v-for="(todo,idx) in this.$store.state.todoList" :key="idx">
         <div>{{todo}}</div>
     </div>
 </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import api from '../api/index.js';
+// import api from '../api/index.js';
 
 export default{ 
 name:'TodoList',
@@ -21,24 +21,26 @@ data(){
 };
     },
     setup(){},
-    created(){},
+    created(){
+        this.$store.dispatch('GET_DATA');
+    },
     mounted(){
         this.init();
     },
-    unmounted(){},
+    unmounted(){}, 
     methods:{
         init(){
             
         },
-        getTodoAll(){
-            try{
-            const res= api.getTodoAll();
-            this.todoList=res.data.todoList
+        // getTodoAll(){
+        //     try{
+        //     const res= api.getTodoAll();
+        //     this.todoList=res.data.todoList
             
-            }catch(err){
-                console.log(err);
-            }
-        }
+        //     }catch(err){
+        //         console.log(err);
+        //     }
+        // }
     }
 }
 </script>

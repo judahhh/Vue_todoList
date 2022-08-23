@@ -2,10 +2,10 @@ import axios from 'axios'
 
 // 1. HTTP Reqest &Response와 관련된 기본 설정
 const instance = axios.create({
-   
+   proxy:{
       baseURL: 'http://52.79.172.230:3001',
-    //   changeOrigin: true
-    
+      changeOrigin: true
+   }
   })
 
 // 2. API 함수들을 정리
@@ -24,12 +24,12 @@ function editTodo  (id,data) {
     return instance.put(`/todo/${id}`,data);
      
 }
-function deleteTodo (data) {
-    return instance.delete(`/todo/:id`,data);
+function deleteTodo (id) {
+    return instance.delete(`/todo/${id}`);
      
 }
-   
-  export {
+//   여기 꼭  export default 로 내보내줘야함
+  export default{
     createTodo,
     getTodoAll,
     getTodoDetail,

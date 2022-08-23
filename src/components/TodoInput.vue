@@ -26,7 +26,7 @@
 
 <script>
 import Modal from "./common/Modal.vue"
-import api from "../api/index.js"
+// import api from "../api/index.js"
 
 export default{ 
 name:'TodoInput',
@@ -55,9 +55,8 @@ data(){
                 const data={
                  todo:this.Input.todo
                  }
-                 console.log(api);
                 //  api함수 불러오기
-                await api.createTodo(data)
+                this.$store.dispatch('CREATE_DATA',data);
             }catch(err){
                 console.log(err);
             }
