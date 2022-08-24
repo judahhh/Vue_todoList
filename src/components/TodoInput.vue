@@ -1,23 +1,7 @@
 <template>
 
 <div>
-    <form action="post" class="inputBox shadow" v-on:submit.prevent>
-        <input type="text" v-model="Input.todo" placeholder="할일을 입력하세요" >
-        <span class="addContainer" @click="submit" @keyup:enter="submit">
-            <i class="fas fa-solid fa-plus addBtn"></i>
-        </span>
-    </form>
-
-
-
-    <Modal v-if="showModal" >
-    <!-- slot문법으로 모달 ui재정의 해주기-->
-    <template>
-        <div>
-            
-        </div>
-    </template>
-    </Modal>
+   
 
 </div>
 
@@ -25,13 +9,13 @@
 </template>
 
 <script>
-import Modal from "./common/Modal.vue"
+
 // import api from "../api/index.js"
 
 export default{ 
 name:'TodoInput',
 components:{
-    Modal:Modal,
+   
     
 },
 data(){
@@ -67,39 +51,5 @@ data(){
 </script>
 
 <style>
-input:focus{
-    outline: none;
-}
-.inputBox{
-    background: white;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 5px;
-    /* width:80%; */
-    vertical-align: center;
-    margin-left: 80px;
-    margin-right: 80px;
-    
-    
-}
-.inputBox input{
-border-style: none;
-font-size: 1.5rem;
-width:80%;
-height:50px; 
-/* font-family: 'Open Sans', sans-serif; */
 
-}
-.addContainer{
-    float: right;
-    background-color: rgb(222, 191, 222);
-    display: block;
-    width: 3rem;
-    border-radius: 0 5px 5px 0;
-}
-.addBtn{
-    color:white;
-     vertical-align: middle; 
-   
-}
 </style>

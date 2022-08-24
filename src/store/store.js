@@ -12,12 +12,13 @@ const store = createStore({
       mutations :{
      SET_TODO(state,data){
       state.todoList=data;
+      
      }
       },
       actions:{
     // 서버에서 api 호출하여 통신하는것은 actions에서
      
-    CREATE_DATA(data){
+    CREATE_DATA(context,data){
         api.createTodo(data)
         .then(res=>{
           console.log(res);
@@ -41,8 +42,8 @@ const store = createStore({
           
       },
      
-      GET_DATA_DETAIL(){
-        api.getTodoDetail()
+      GET_DATA_DETAIL(context,id){
+        api.getTodoDetail(id)
         .then(res=>{
           console.log(res);
 
@@ -52,10 +53,11 @@ const store = createStore({
         }) 
       },
      
-      DELETE_DATA(){
-        api.deleteTodo()
+      DELETE_DATA(context,id){
+        api.deleteTodo(id)
         .then(res=>{
           console.log(res);
+          context.commit('SET_TODO',res.data);
 
         })
         .catch(err=>{
@@ -63,8 +65,8 @@ const store = createStore({
         }) 
       },
    
-      EDIT_DATA(){
-        api.editTodo()
+      EDIT_DATA(context,id){
+        api.editTodo(id)
         .then(res=>{
           console.log(res);
 
