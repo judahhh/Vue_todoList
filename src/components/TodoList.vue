@@ -1,6 +1,7 @@
 <template>
 
 <div>
+    <router-view></router-view>
      <form action="post" class="inputBox shadow" @submit.prevent>
         <input type="text" v-model="Input.todo" 
         placeholder="할일을 입력하세요" @keypress.enter.prevent="submit">
@@ -90,14 +91,11 @@ data(){
         },
         async getDetail(id){
             try{
-                 console.log(id);
-                this.$router.push({
-                     
-                    //  path: '/TodoDetail/:id',
-                     name:'TodoDetail',
-                      params:{id:id},
-                  
-                })
+                //  console.log(id);
+                this.$router.push(
+                  `/TodoDetail/${id}`,
+                 
+                    )
             }catch(err){
                 console.log(err)
             }

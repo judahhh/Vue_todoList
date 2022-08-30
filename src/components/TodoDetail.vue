@@ -1,11 +1,11 @@
 <template>
 
-<div>Todo Detail Context</div>
+<div>{{this.content.todo}}</div>
 
 </template>
 
 <script>
-// import api from '../api/index.js';
+//  import api from '../api/index.js';
 
 export default{ 
 name:'TodoDetail',
@@ -19,17 +19,20 @@ data(){
     }, 
     setup(){},
     created(){
-        this.getContent();
+        this.getContent()
+       
     },   
-    mounted(){},
+    mounted(){  },
     unmounted(){},
     methods:{
         async getContent(){
             try{
-                // const res=await api.getTodoDetail(id)
-                this.$store.dispatch('GET_DATA_DETAIL',this.DetailId);
-               if(this.$store.state.todoList.id==this.DetailId)
-               this.content=this.$store.state.todoList.todo
+                //  const res=await api.getTodoDetail(this.DetailId)
+                // this.content=res.data
+            
+               this.$store.dispatch('GET_DATA_DETAIL',this.DetailId);
+               this.content=this.$store.state.todoList
+               
             }
             catch(err){
                 console.log(err)

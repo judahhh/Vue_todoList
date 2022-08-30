@@ -1,7 +1,23 @@
 <template>
 
 <div>
+    <header>
+       
+        <div>
+        <!-- 로그인 -->
+        <!-- <router-link to="/Login" >로그인 </router-link> -->
+        <span @click="goLogin">로그인</span>
+
+
+         <!-- 회원가입 -->
+         <!-- <router-link to="/Register"> 회원가입</router-link> -->
+        
+          <span @click="goRegister">회원가입</span>
+        
+         </div>
     <h1>TODO it!</h1>
+
+    </header>
 </div>
 
 </template>
@@ -20,7 +36,15 @@ data(){
     created(){},
     mounted(){},
     unmounted(){},
-    methods:{}
+    methods:{
+        goLogin(){
+        this.$router.push('/Login');
+        },
+        goRegister(){
+        this.$router.push('/Register');
+
+        }
+    }
 }
 </script>
 
