@@ -14,11 +14,12 @@
     class="List">
     <div>
         <!-- <div class="ListNum"> No : {{todo.id}}</div> -->
-        <span> {{todo.todo}}</span>
+        <span @click="getDetail(todo.id)"> {{todo.todo}}</span>
          <i class="fas fa-trash-alt btnDelete"
         @click="todoDelete(todo.id)"></i>
     </div>
     </div>
+   
 
 
 
@@ -86,6 +87,20 @@ data(){
                 console.log(err);
             }
 
+        },
+        async getDetail(id){
+            try{
+                 console.log(id);
+                this.$router.push({
+                     
+                    //  path: '/TodoDetail/:id',
+                     name:'TodoDetail',
+                      params:{id:id},
+                  
+                })
+            }catch(err){
+                console.log(err)
+            }
         }
     },
         init(){

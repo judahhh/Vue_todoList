@@ -46,7 +46,7 @@ const store = createStore({
         api.getTodoDetail(id)
         .then(res=>{
           console.log(res);
-
+          context.commit('SET_TODO',res.data)
         })
         .catch(err=>{
           console.log(err);
@@ -69,7 +69,7 @@ const store = createStore({
         api.editTodo(id)
         .then(res=>{
           console.log(res);
-
+          // context.commit('SET_TODO',res.data);
         })
         .catch(err=>{
           console.log(err);
