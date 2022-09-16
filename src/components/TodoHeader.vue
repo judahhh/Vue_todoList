@@ -15,7 +15,7 @@
           <span @click="goRegister">회원가입</span>
         
          </div>
-    <h1>TODO it!</h1>
+    <h1>TODO it!!</h1>
 
     </header>
 </div>
