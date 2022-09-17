@@ -13,8 +13,7 @@
          <!-- <router-link to="/Register"> 회원가입</router-link> -->
         
           <span @click="goRegister">회원가입</span>
-          <div>commit1</div>
-        
+        <div>commit 취소 연습</div>
          </div>
     <h1>TODO it!!</h1>
 
